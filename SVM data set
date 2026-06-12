@@ -1,0 +1,91 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN9DFdyhO+BtB24HJs59eBc",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Evidence11710/Evi-links-/blob/main/SVM%20data%20set\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JgiQAJD6p5k8",
+        "outputId": "018b6e62-d91a-4c3e-f871-67db0533cd65"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Accuracy: 1.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "from sklearn import datasets\n",
+        "\n",
+        "from sklearn.model_selection import train_test_split\n",
+        "\n",
+        "from sklearn.svm import SVC\n",
+        "\n",
+        "from sklearn.metrics import accuracy_score\n",
+        "\n",
+        "# Load Iris dataset\n",
+        "\n",
+        "iris = datasets.load_iris()\n",
+        "\n",
+        "X = iris.data\n",
+        "\n",
+        "y = iris.target\n",
+        "\n",
+        "# Split dataset\n",
+        "\n",
+        "X_train, X_test, y_train, y_test = train_test_split(\n",
+        "\n",
+        "    X, y, test_size=0.2, random_state=42\n",
+        "\n",
+        ")\n",
+        "\n",
+        "# Create SVM model\n",
+        "\n",
+        "model = SVC(kernel='linear')\n",
+        "\n",
+        "# Train model\n",
+        "\n",
+        "model.fit(X_train, y_train)\n",
+        "\n",
+        "# Predict\n",
+        "\n",
+        "y_pred = model.predict(X_test)\n",
+        "\n",
+        "# Accuracy\n",
+        "\n",
+        "print(\"Accuracy:\", accuracy_score(y_test, y_pred))"
+      ]
+    }
+  ]
+}
